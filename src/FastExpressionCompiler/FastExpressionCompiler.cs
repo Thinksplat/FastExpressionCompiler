@@ -4111,6 +4111,8 @@ namespace FastExpressionCompiler
                             else if ((parent & ParentFlags.Call) != 0 && byRefIndex != -1)
                                 isByAddress = true;
                         }
+                        if(byRefIndex != -1) 
+                            isByAddress = true;
                         closure.LastEmitIsAddress = isByAddress;
                         il.Emit(isByAddress ? OpCodes.Ldflda : OpCodes.Ldfld, field);
                     }
